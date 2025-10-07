@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
+    <title>king</title>
+    <style>
+        .body {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+
+            font-family: "Fleur De Leah", cursive;
+            background-color: white;
+            font-size: 40px;
+            padding: 0 20px;
+
+
+        }
+
+        .input {
+            padding: 10px;
+            font-size: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card {
+            box-shadow: 10px 10px 10px black;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .image {
+            background-color: black;
+            height: 700px;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="image"
+            src="https://images.unsplash.com/flagged/photo-1565241651368-35437ca5563f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="king of brarm kindom" srcset="">
+
+        <div class="card">
+            <h1>Enter Your Age </h1>
+            <input class="input" type="text" placeholder="Enter your age" id="age">
+            <button class="btn" onclick="checkAge()">Check Age</button>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script>
+        function checkAge() {
+            const age = document.getElementById('age').value;
+            const result = document.getElementById('result');
+            if (age <= 99) {
+                result.textContent = "You are not eligible to king gift.";
+            } else if (age == 100) {
+                result.textContent = "Congratulations on reaching 100! You get a special king gift. ";
+            } else if (age > 100) {
+                yearsofgift = age - 100;
+                result.textContent = "You have got a king gift  " + yearsofgift + " years ago.";
+
+            } else {
+                result.textContent = "Please enter a valid age.";
+            }
+        }
+    </script>
+</body>
+
+</html>
