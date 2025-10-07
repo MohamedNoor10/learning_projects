@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .box {
+            float: left;
+            width: 50%;
+            padding: 50px;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        img {
+            width: 600px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Grid of Boxes</h2>
+    <p>Float boxes side by side:</p>
+
+    <div class="clearfix">
+        <div class="box" style="background-color:#bbb">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque quis veritatis nemo inventore aut magni
+                saepe culpa eveniet libero quibusdam ad ab deleniti vitae, ipsum sapiente rerum aliquid cum ipsam?</p>
+        </div>
+        <div class="box" style="background-color:#ccc">
+            <img src="https://plus.unsplash.com/premium_photo-1758893665497-220a2c5affe5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="" srcset="">
+        </div>
+
+    </div>
+
+    <p><strong>Note:</strong> Here, we use the clearfix hack to take care of the layout flow.
+        We also use the box-sizing property to make sure that the box doesn't break due to extra padding. Try to remove
+        this code to see the effect.</p>
+
+</body>
+
+</html>

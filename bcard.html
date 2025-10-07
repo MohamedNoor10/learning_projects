@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busniess Card</title>
+    <style>
+        .bcard {
+            background-color: #f1f1f1;
+            border: 2px solid black;
+            border-radius: 20px;
+            border-bottom: 5px solid black;
+            width: 500px;
+            margin-top: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 30px;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            float: left;
+            padding-right: 20px;
+            animation-name: avatarAnimation;
+            animation-duration: 4s;
+        }
+
+        @keyframes avatarAnimation {
+            0% {
+                width: 150px;
+                left: 0px;
+                top: 0px;
+            }
+
+            25% {
+                width: 200px;
+                left: 200px;
+                top: 0px;
+            }
+
+            50% {
+                width: 150px;
+                left: 0px;
+                top: 0px;
+            }
+
+            75% {
+                width: 200px;
+                left: 200px;
+                top: 0px;
+            }
+
+            100% {
+                width: 150px;
+                left: 0px;
+                top: 0px;
+            }
+
+        }
+
+        h3,
+        p {
+            text-align: left;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .info::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bcard">
+        <img class="avatar" src="/assets/img/me.jpg" alt="" srcset="">
+        <div class="info">
+            <h3>Mohamed Noor</h3>
+            <p>Web Developer</p>
+            <p>Email: mohamednoor174@gmail.com</p>
+            <p>Phone: +249 922283174</p>
+        </div>
+    </div>
+</body>
+
+</html>

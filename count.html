@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        .card {
+            background-color: #f1f1f1;
+            border: 2px solid black;
+            border-radius: 20px;
+            width: 500px;
+            margin-top: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>people visited</h1>
+        <h1 id="count">0</h1>
+        <button id="increse">increse +</button>
+        <button id="decrise">decrise -</button>
+        <button id="reset" onclick="reset()">reset</button>
+        <button id="save" onclick="save()">save</button>
+        <h3>previous entries:</h3>
+        <p id="prev"></p>
+    </div>
+    <script>
+        let count = 0;
+        const countEl = document.getElementById('count');
+        const increseEl = document.getElementById('increse');
+        const decriseEl = document.getElementById('decrise');
+        increseEl.addEventListener('click', () => {
+            count++;
+            countEl.textContent = count;
+        });
+        decriseEl.addEventListener('click', () => {
+            count--;
+            countEl.textContent = count;
+        });
+
+        function save() {
+            let prevEl = document.getElementById('prev');
+            let countStr = count + " - ";
+            prevEl.textContent += countStr;
+            count = 0;
+            countEl.textContent = count;
+        }
+
+        function reset() {
+            count = 0;
+            countEl.textContent = count;
+        }
+    </script>
+</body>
+
+</html>
