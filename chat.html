@@ -72,6 +72,8 @@
             <div class="card">
                 <input class="input" type="text" placeholder="type a message" id="message1">
                 <button class="btn" onclick=sendMessage1()>send</button>
+                <button class="btn" onclick=clearChat()>clear</button>
+                <button class="btn" onclick=deleteLastMessage()>delete last message</button>
             </div>
         </div>
         <div class="chatscreen" id="chatscreen">
@@ -86,6 +88,8 @@
             <div class="card">
                 <input class="input" type="text" placeholder="type a message" id="message2">
                 <button class="btn" onclick=sendMessage2()>send</button>
+                <button class="btn" onclick=clearChat()>clear</button>
+                <button class="btn" onclick=deleteLastMessage()>delete last message</button>
             </div>
         </div>
     </div>
@@ -109,6 +113,15 @@
             chatscreen.push("Samah: " + msg2);
             console.log(chatscreen);
             message1.value = "";
+            result.textContent = chatscreen.join("\n");
+        }
+
+        function clearChat() {
+            chatscreen = [];
+            result.textContent = "";
+        }
+        function deleteLastMessage() {
+            chatscreen.pop();
             result.textContent = chatscreen.join("\n");
         }
     </script>
