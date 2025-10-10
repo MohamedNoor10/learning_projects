@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <title>Black Jack Game</title>
+</head>
+<style>
+    body {
+        background-color: rgb(31, 44, 7);
+        background-size: cover;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        font-family: "Caveat", cursive;
+        color: white;
+        font-size: 40px;
+
+    }
+
+    h1 {
+        font-size: 60px;
+        letter-spacing: 10px;
+        color: goldenrod;
+    }
+
+    .btn {
+        background-color: goldenrod;
+        color: black;
+        padding: 10px 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Black Jack</h1>
+        </div>
+        <div class="game-info">
+            <p id="title">do you want to draw a new card</p>
+            <p id="card">card: </p>
+            <p id="sum">sum: </p>
+            <p id="massage"></p>
+        </div>
+        <div class="buttons">
+            <button class="btn" id="new-card" onclick="newCard()">New Card</button>
+            <button class="btn" id="start-game" onclick="startGame()">Start Game</button>
+        </div>
+    </div>
+
+
+    <script>
+        let first_card = 0;
+        let second_card = 0;
+        let sum = first_card + second_card;
+        let hasBlackJack = false;
+        let isAlive = false;
+        let massage = document.getElementById("massage");
+        let card = document.getElementById("card");
+        let sum1 = document.getElementById("sum");
+        let title = document.getElementById("title");
+        let new_card = document.getElementById("new-card");
+        let start_game = document.getElementById("start-game");
+
+        function getRandomCard() {
+            let randomNumber = Math.floor(Math.random() * 13) + 1;
+            if (randomNumber > 10) {
+                return 10;
+            } else if (randomNumber === 1) {
+                return 11;
+            } else {
+                return randomNumber;
+            }
+        }
+
+        function startGame() {
+            isAlive = true;
+            first_card = getRandomCard();
+            second_card = getRandomCard();
+            sum = first_card + second_card;
+            card.textContent = "card: " + first_card + " " + second_card;
+            sum1.textContent = "sum: " + sum;
+            title.textContent = "do you want to draw a new card";
+            massage.textContent = "";
+        }
+
+        function newCard() {
+            if (isAlive === true && hasBlackJack === false) {
+                let card = getRandomCard();
+                sum += card;
+                card.textContent += " " + card;
+                sum1.textContent = "sum: " + sum;
+
+                if (sum < 21) {
+                    massage.textContent = "do you want to draw a new card";
+                } else if (sum === 21) {
+                    massage.textContent = "you got Black Jack";
+                    hasBlackJack = true;
+
+                } else {
+                    massage.textContent = "you are out of the game";
+                    isAlive = false;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
